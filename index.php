@@ -9,6 +9,11 @@
  */
 
 /**
+ * Load Core class to handle basic site functions.
+ */
+include 'class/class.Core.php';
+
+/**
  * Auto load magic function for all classes
  * @param $class_name class to be loaded
  */
