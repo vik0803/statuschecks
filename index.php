@@ -8,6 +8,8 @@
  * Time: 9:49 AM
  */
 
+namespace StatusChecks;
+
 /**
  * Load Core class to handle basic site functions.
  */
@@ -20,3 +22,5 @@ include 'class/class.Core.php';
 function __autoload($class_name) {
     include 'class/class.' . $class_name . '.php';
 }
+
+$site = new Core();
