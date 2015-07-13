@@ -17,6 +17,7 @@ class Core
      */
     function __construct() {
         $config = settings();
+        init();
     }
 
     /**
@@ -24,6 +25,7 @@ class Core
      */
     private function settings() {
         if (file_exists('settings/settings.inc')) {
+            $settings = array();
             include_once('settings/settings.inc');
             return $settings;
         }
@@ -33,9 +35,21 @@ class Core
     }
 
     /**
+     * @TODO Finish init function
      * custom init function
      */
     private function init() {
+        $this->db_log(1, 'Core init', NULL);
+    }
+
+    /**
+     * @TODO FINISH db_log FUNCTION
+     * Log action to database
+     * @param $status int
+     * @param $message string
+     * @param $link string
+     */
+    public function db_log($status, $message, $link) {
 
     }
 
