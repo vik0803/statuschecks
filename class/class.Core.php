@@ -16,18 +16,16 @@ class Core
      * Construct the Core class
      */
     function __construct() {
-        $config = settings();
-        init();
+        $this->settings();
+        $this->init();
     }
 
     /**
-     * check if settings file exists if so load it else return error.
+     * check if _SETTINGS file exists if so load it else return error.
      */
     private function settings() {
         if (file_exists('settings/settings.inc')) {
-            $settings = array();
             include_once('settings/settings.inc');
-            return $settings;
         }
         else {
             die('This instance is not yet installed.');

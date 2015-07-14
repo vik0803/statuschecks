@@ -24,3 +24,8 @@ function __autoload($class_name) {
 }
 
 $site = new Core();
+if ($site) {
+    echo "Core Initialized";
+} else {
+    echo "Failed";
+}

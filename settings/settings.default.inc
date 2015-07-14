@@ -8,29 +8,30 @@
  */
 
 /**
- * Copy this file to {site_root}/settings/settings.inc and modify settings below to their appropriate values for your
+ * Copy this file to {site_root}/_SETTINGS/_SETTINGS.inc and modify _SETTINGS below to their appropriate values for your
  * instance to complete the installation process.
  */
 
-//initialize blank settings array.
-$settings = array();
+//initialize blank _SETTINGS array.
+GLOBAL $_SETTINGS;
+$_SETTINGS = array();
 
 /**
- * Basic site settings
+ * Basic site _SETTINGS
  */
 
-$settings['site']['name'] = 'Status Checks';
-$settings['site']['admin_email'] = ''; //Used for notifications of statuschecks status/updates
-$settings['site']['base_url'] = ''; //Use to allow only one url, prevents site spoofing. Leave blank to accept any URL.
-$settings['site']['cron_key'] = ''; //If not set, cron requests will fail.
-$settings['site']['api_key'] = ''; //If set, all API requests MUST include this value to authenticate.
+$_SETTINGS['site']['name'] = 'Status Checks';
+$_SETTINGS['site']['admin_email'] = ''; //Used for notifications of statuschecks status/updates
+$_SETTINGS['site']['base_url'] = ''; //Use to allow only one url, prevents site spoofing. Leave blank to accept any URL.
+$_SETTINGS['site']['cron_key'] = ''; //If not set, cron requests will fail.
+$_SETTINGS['site']['api_key'] = ''; //If set, all API requests MUST include this value to authenticate.
 
 
 /**
- * Database settings
+ * Database _SETTINGS
  */
-$settings['database']['host'] = '127.0.0.1';
-$settings['database']['user'] = '';
-$settings['database']['password'] = '';
-$settings['database']['database'] = '';
-$settings['database']['prefix'] = ''; //leave blank for no prefix
+$_SETTINGS['database']['host'] = '127.0.0.1';
+$_SETTINGS['database']['user'] = '';
+$_SETTINGS['database']['password'] = '';
+$_SETTINGS['database']['database'] = '';
+$_SETTINGS['database']['prefix'] = ''; //leave blank for no prefix
