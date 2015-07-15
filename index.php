@@ -31,4 +31,7 @@ $core = new Core();
 if ($core) {
     $site = new Site();
     $site->render('index');
+    $site->render('nav');
+    $site->render('body');
+    $site->render('footer');
 }
