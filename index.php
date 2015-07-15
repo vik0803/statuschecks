@@ -27,11 +27,22 @@ function __autoload($class_name) {
     include 'class/class.' . $class_name . '.php';
 }
 
+/**
+ * Initialize new Core, loads settings.
+ */
 $core = new Core();
 if ($core) {
+    /**
+     * Initialize new site, loads and displays site content
+     */
     $site = new Site();
-    $site->render('index');
-    $site->render('nav');
-    $site->render('body');
-    $site->render('footer');
+    if ($site) {
+        /**
+         * Render major site template components
+         */
+        $site->render('index');
+        $site->render('nav');
+        $site->render('body');
+        $site->render('footer');
+    }
 }

@@ -13,18 +13,36 @@ class Core
 {
     static $_this;
 
+    /**
+     * Magic constructor class.
+     * Load static $_this property array with return value of settings function.
+     */
     function __construct() {
         self::$_this = $this->settings();;
     }
 
+    /**
+     * return config array instance
+     * @return array
+     */
     static function &getInstance(){
         return self::$_this;
     }
 
+    /**
+     * set config value
+     * @param $key
+     * @param $value
+     */
     static function set($key, $value){
         self::$_this[$key] = $value;
     }
 
+    /**
+     * get value from static $_this
+     * @param $key
+     * @return mixed
+     */
     static function &get($key){
         return self::$_this[$key];
     }
