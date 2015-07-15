@@ -12,20 +12,23 @@ namespace StatusChecks;
 
 /**
  * Load Core class to handle basic site functions.
+ * Load Site class to handle display settings
  */
 include 'class/class.Core.php';
+include 'class/class.Site.php';
 
 /**
  * Auto load magic function for all classes
  * @param $class_name class to be loaded
  */
 function __autoload($class_name) {
+    /** @noinspection PhpToStringImplementationInspection */
+    /** @noinspection PhpIncludeInspection */
     include 'class/class.' . $class_name . '.php';
 }
 
-$site = new Core();
-if ($site) {
-    echo "Core Initialized";
-} else {
-    echo "Failed";
+$core = new Core();
+if ($core) {
+    $site = new Site();
+    $site->render('index');
 }

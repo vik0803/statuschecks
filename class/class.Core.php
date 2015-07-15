@@ -11,44 +11,37 @@ namespace StatusChecks;
 
 class Core
 {
-    protected $config;
-    /**
-     * Construct the Core class
-     */
+    static $_this;
+
     function __construct() {
-        $this->settings();
-        $this->init();
+        self::$_this = $this->settings();;
+    }
+
+    static function &getInstance(){
+        return self::$_this;
+    }
+
+    static function set($key, $value){
+        self::$_this[$key] = $value;
+    }
+
+    static function &get($key){
+        return self::$_this[$key];
     }
 
     /**
-     * check if _SETTINGS file exists if so load it else return error.
+     * load settings file if exists
+     * @return array
      */
-    private function settings() {
+    public function settings() {
         if (file_exists('settings/settings.inc')) {
+            /** @noinspection PhpIncludeInspection */
             include_once('settings/settings.inc');
+            return $_SETTINGS;
         }
         else {
             die('This instance is not yet installed.');
         }
-    }
-
-    /**
-     * @TODO Finish init function
-     * custom init function
-     */
-    private function init() {
-        $this->db_log(1, 'Core init', NULL);
-    }
-
-    /**
-     * @TODO FINISH db_log FUNCTION
-     * Log action to database
-     * @param $status int
-     * @param $message string
-     * @param $link string
-     */
-    public function db_log($status, $message, $link) {
-
     }
 
 }
