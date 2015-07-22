@@ -14,8 +14,8 @@ namespace StatusChecks;
  * Load Core class to handle basic site functions.
  * Load Site class to handle display settings
  */
-include 'class/class.Core.php';
-include 'class/class.Site.php';
+require 'class/class.Core.php';
+require 'class/class.Site.php';
 
 /**
  * Auto load magic function for all classes
@@ -29,6 +29,7 @@ function __autoload($class_name) {
 
 /**
  * Initialize new Core, loads settings.
+ * @TODO: use try/catch instead of if/else
  */
 $core = new Core();
 if ($core) {
@@ -45,4 +46,10 @@ if ($core) {
         $site->render('body');
         $site->render('footer');
     }
+    else {
+        //site failed to initialize
+    }
+}
+else {
+    //core failed to initialize
 }
